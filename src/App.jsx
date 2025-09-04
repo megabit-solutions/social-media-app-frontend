@@ -1,12 +1,14 @@
+import PostsList from './components/PostsList'
 import './styles/App.css'
 
 function App() {
 
   return (
     <>
-      <div className='bg-green-100'>Hello world again!</div>
+      <PostsList />
     </>
   )
 }
 
 export default App
+
