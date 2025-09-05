@@ -1,0 +1,49 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    height: 100vh;
+    padding-left: 10rem;
+    padding-right: 10rem;
+
+
+    & .heading {
+        width: 100%;
+        text-align: center;
+        font-family: var(--font-family-heading);        
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--color-text-bright);
+        margin-bottom: 0.25rem; 
+    }
+
+    & .subheading {
+        width: 100%;
+        text-align: center;
+        font-family: var(--font-family-heading);        
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--color-text-placeholder);
+        margin-bottom: 2rem;
+    }
+
+    & > Input {
+        margin-bottom: 1.5rem;
+    }
+
+    & > #forgotLink {
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+
+    & > #signupLink {
+        font-size: 1.0625rem;
+        margin-top: 2rem;
+        display: flex;
+        gap: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

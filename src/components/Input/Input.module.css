@@ -1,0 +1,43 @@
+.label {
+    font-family: var(--font-family-body);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-text-bright);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    & > p {
+        padding-left: 0.25rem;
+    }
+}
+
+.input {
+    height: 2.5em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-bottom: 0.15em;
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-text-bright);
+    background-color: var(--color-background);
+    border-color: hsl(0,0%,75%);
+    border-width: 1px;
+    border-radius: 0.25em;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: hsl(0,0%,75%);
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: var(--color-text-bright);
+        background-color: hsl(0,0%,98%);
+    }
+    &::placeholder {
+        color: var(--color-text-placeholder);
+        line-height: 1;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}

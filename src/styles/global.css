@@ -9,7 +9,8 @@
 [data-theme="light"] {
     --color-background: hsl(0, 0%, 100%);
     --color-text-bright: hsl(0, 0%, 4%);
-    --color-text-dim: hsl(0, 0%, 20%);
+    --color-text-dim: hsl(0, 0%, 30%);
+    --color-text-placeholder: hsl(0, 0%, 70%);
     --color-primary-50:  hsl(50, 100%, 95%);
     --color-primary-100: hsl(50, 100%, 90%);
     --color-primary-200: hsl(50, 100%, 80%);
