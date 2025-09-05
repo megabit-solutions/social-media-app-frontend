@@ -5,6 +5,7 @@ const Button = ({
     size = 'md',
     label,
     icon,
+    onClick,
     ...props
 }) => {
     const classes = [
@@ -16,7 +17,7 @@ const Button = ({
     ].join(" ");
     console.log(classes);
     return (
-        <button className={classes} {...props}>
+        <button className={classes} {...props} onClick={onClick}>
             {icon && <span className={styles["btn-icon"]}>{icon}</span>}
             <p className={styles["btn-text"]}>{label}</p>
         </button>

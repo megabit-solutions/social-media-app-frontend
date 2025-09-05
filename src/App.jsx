@@ -1,21 +1,9 @@
-import PostsList from './components/PostsList'
-import Button from './components/Button/Button'
-import Input from './components/Input/Input'
-import LoginForm from './features/LoginForm/LoginForm';
-import SignupForm from './features/SignupForm/SignupForm'
-
+import { RouterProvider } from 'react-router/dom'
+import { router } from './routes/router'
 import './styles/App.css'
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      <LoginForm />
-      <SignupForm />      
-      {/* <PostsList /> */}
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
-
-export default App
-

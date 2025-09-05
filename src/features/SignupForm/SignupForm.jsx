@@ -1,6 +1,6 @@
-import styles from '../LoginForm/Form.module.css' ;
+import styles from '../LoginForm/Form.module.css';
 import Input from '../../components/Input/Input'
-import Button from '../../components/Button/Button'
+import Button from '../../components/Button/Button';
 
 const SignupForm = (...props) => {
     return (

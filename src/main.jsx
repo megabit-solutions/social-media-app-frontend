@@ -1,15 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { store } from './app/store.js'
+import { initAuth } from './app/bootAuth.js'
+import { startTabSync } from './app/tabSync'
+import App from './App.jsx'
+
 import './styles/index.css'
 import './styles/global.css';
-import App from './App.jsx'
-import { Provider } from 'react-redux'
-import store from './store/store.js'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const tabSync = startTabSync(store);
+if (tabSync) window.__tabSync = tabSync;
+await initAuth(store);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </StrictMode>,
+  </React.StrictMode>,
 )
