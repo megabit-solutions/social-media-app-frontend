@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearAuth, selectUser } from '../features/auth/authSlice';
 import { clearProactiveRefresh } from '../features/auth/tokenScheduler';
 import Button from '../components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 export default function DashboardPage() {
     const [doLogout] = useLogoutMutation();
@@ -16,12 +16,11 @@ export default function DashboardPage() {
             await doLogout().unwrap();
         } catch (err) {
             console.log(err);
-        }
-        finally {
+        } finally {
             clearProactiveRefresh();
             dispatch(clearAuth());
             window.__tabSync?.notifyLogout?.();
-            navigate("/login");
+            navigate('/login');
         }
     };
 
@@ -29,8 +28,7 @@ export default function DashboardPage() {
         <div>
             <h1>Dashboard</h1>
             <p>Hello {user?.name || 'there'} 👋</p>
-            <Button variant='primary' onClick={onLogout} label={"Log Out"} />
-
+            <Button variant="primary" onClick={onLogout} label={'Log Out'} />
         </div>
     );
 }

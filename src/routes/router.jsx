@@ -5,6 +5,7 @@ import RequireAuth from './RequireAuth';
 import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
 import HomePage from '../pages/HomePage.jsx';
+import Loading from '../components/Loading/Loading.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
@@ -12,9 +13,7 @@ const DashboardPage = React.lazy(() => import('../pages/DashboardPage.jsx'));
 const NotFound = React.lazy(() => import('../pages/NotFound.jsx'));
 
 const withSuspense = (element) => (
-    <Suspense fallback={<div style={{ padding: 24 }}>Loading…</div>}>
-        {element}
-    </Suspense>
+    <Suspense fallback={<Loading />}>{element}</Suspense>
 );
 
 export const router = createBrowserRouter(
@@ -26,17 +25,31 @@ export const router = createBrowserRouter(
             children: [
                 {
                     index: true,
-                    element: <HomePage />
+                    element: <HomePage />,
                 },
-                { path: 'login', loader: loginLoader, element: withSuspense(<LoginPage />) },
-                { path: 'signup', loader: loginLoader, element: withSuspense(<SignupPage />) },
-                // {
-                // element: <RequireAuth />,
-                // children: [
-                // { index: true, element: withSuspense(<DashboardPage />) },
-                { path: 'dashboard', element: withSuspense(<DashboardPage />) },
-                // ],
-                // },
+                {
+                    path: 'login',
+                    loader: loginLoader,
+                    element: withSuspense(<LoginPage />),
+                },
+                {
+                    path: 'signup',
+                    loader: loginLoader,
+                    element: withSuspense(<SignupPage />),
+                },
+                {
+                    element: <RequireAuth />,
+                    children: [
+                        {
+                            index: true,
+                            element: withSuspense(<DashboardPage />),
+                        },
+                        {
+                            path: 'dashboard',
+                            element: withSuspense(<DashboardPage />),
+                        },
+                    ],
+                },
 
                 { path: '*', element: withSuspense(<NotFound />) },
             ],
