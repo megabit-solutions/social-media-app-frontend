@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },   // keep built assets direct
-    { "source": "/favicon.ico", "destination": "/favicon.ico" }, // (optional) keep favicon direct
-    { "source": "/(.*)", "destination": "/" }                    // everything else -> index.html
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },   
+    { "source": "/favicon.ico", "destination": "/favicon.ico" }, 
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
