@@ -4,6 +4,7 @@ import RootLayout from './RootLayout';
 import RequireAuth from './RequireAuth';
 import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
+import HomePage from '../pages/HomePage.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
@@ -23,6 +24,10 @@ export const router = createBrowserRouter(
             element: <RootLayout />,
             errorElement: withSuspense(<RouteErrorBoundary />),
             children: [
+                {
+                    index: true,
+                    element: <HomePage />
+                },
                 { path: 'login', loader: loginLoader, element: withSuspense(<LoginPage />) },
                 { path: 'signup', loader: loginLoader, element: withSuspense(<SignupPage />) },
                 // {
