@@ -3,6 +3,10 @@
     --font-family-heading: 'Inter', sans-serif;
     --font-family-body: 'Poppins', sans-serif;
     --color-accent: hsl(50, 100%, 50%);
+
+    & * {
+        font-family: var(--font-family-body), sans-serif;
+    }
 }
 
 :root,

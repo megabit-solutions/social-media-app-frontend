@@ -32,6 +32,47 @@
         margin-bottom: 1.5rem;
     }
 
+    .row-group {
+        display: flex;
+        gap: 2rem;
+        padding: 0;
+        margin: 0;
+        border: none;
+
+        & > Input {
+            flex: 1;
+        }
+
+        & #gender {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            border-style: solid;
+            border-radius: 0.25rem;
+            border-width: 1.5px;
+            border-color: var(--color-text-placeholder);
+
+            & > p {
+                color: var(--color-text-dim);
+                width: min-content;
+                height: min-content;
+                line-height: 1;
+                padding: 0;
+                margin: 0;
+            }
+
+            & > label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.25rem;
+            }
+        }
+
+    }
+
     & > #forgotLink {
         margin-bottom: 2rem;
         margin-left: auto;
