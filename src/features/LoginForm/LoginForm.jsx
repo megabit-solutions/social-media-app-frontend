@@ -34,7 +34,6 @@ const LoginForm = (...props) => {
 
     const onSubmit = async (data) => {
         await login(data);
-        alert('Submitted:\n' + JSON.stringify(data, null, 2));
         reset();
     };
 
@@ -44,7 +43,6 @@ const LoginForm = (...props) => {
             const { data: userData } = data || {};
             const { accessToken, user } = userData;
             if (accessToken && user) {
-                console.log('working');
                 dispatch(setCredentials({ accessToken, user }));
                 const to = location.state?.from?.pathname || '/dashboard';
                 navigate(to, { replace: true });

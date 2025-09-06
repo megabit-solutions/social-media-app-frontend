@@ -42,7 +42,6 @@ const SignupForm = (...props) => {
         // eslint-disable-next-line no-unused-vars
         const { confirmPassword, ...body } = data;
         await signup(body);
-        alert('Submitted:\n' + JSON.stringify(data, null, 2));
         reset();
     };
 
