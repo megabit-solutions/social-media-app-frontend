@@ -6,13 +6,11 @@ import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
 import HomePage from '../pages/HomePage.jsx';
 import Loading from '../components/Loading/Loading.jsx';
-import AuthLayout from '../pages/AuthLayout.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
 const DashboardPage = React.lazy(() => import('../pages/DashboardPage.jsx'));
 const NotFound = React.lazy(() => import('../pages/NotFound.jsx'));
-const AuthPage = React.lazy(() => import('../pages/AuthPage.jsx'));
 
 const withSuspense = (element) => (
     <Suspense fallback={<Loading />}>{element}</Suspense>
