@@ -1,4 +1,4 @@
-import styles from '../LoginForm/Form.module.css';
+import styles from './SignupForm.module.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useForm } from 'react-hook-form';
@@ -12,7 +12,7 @@ import { selectAccessToken, setCredentials } from '../auth/authSlice';
 import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 import { Link } from 'react-router';
 
-const SignupForm = (...props) => {
+const SignupForm = ({onSwitch}, ...props) => {
     const [signup, { isError, error, isSuccess, data }] = useSignupMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -77,111 +77,111 @@ const SignupForm = (...props) => {
         >
             <h2 className={styles.heading}>Share Your Moments</h2>
             <p className={styles.subheading}>Welcome To SocialApp</p>
-            <Input
-                type="text"
-                placeholder="Enter your name"
-                autoComplete="true"
-                aria-invalid={!!errors?.fullName}
-                aria-describedby={
-                    errors?.fullName ? 'fullName-error' : undefined
-                }
-                {...register('fullName')}
-            />
-            {errors?.fullName && <ErrorMessage field={errors?.fullName} />}
-            <Input
-                type="email"
-                placeholder="Enter your email"
-                autoComplete="true"
-                aria-invalid={!!errors?.email}
-                aria-describedby={errors?.email ? 'email-error' : undefined}
-                {...register('email')}
-            />
-            {errors?.email && <ErrorMessage field={errors?.email} />}
-
-            <Input
-                type="text"
-                placeholder="Pick a username"
-                required
-                autoComplete="true"
-                aria-invalid={!!errors?.username}
-                aria-describedby={
-                    errors?.username ? 'username-error' : undefined
-                }
-                {...register('username')}
-            />
-            {errors?.username && <ErrorMessage field={errors?.username} />}
-            <Input
-                type="password"
-                placeholder="Enter your password"
-                required
-                autoComplete="true"
-                aria-invalid={!!errors?.password}
-                aria-describedby={
-                    errors?.password ? 'password-error' : undefined
-                }
-                {...register('password')}
-            />
-            {errors?.password && <ErrorMessage field={errors?.password} />}
-            <Input
-                type="password"
-                placeholder="Enter password again"
-                required
-                autoComplete="true"
-                aria-invalid={!!errors?.confirmPassword}
-                aria-describedby={
-                    errors?.confirmPassword
-                        ? 'confirmPassword-error'
-                        : undefined
-                }
-                {...register('confirmPassword')}
-            />
-            {errors?.confirmPassword && (
-                <ErrorMessage field={errors?.confirmPassword} />
-            )}
-            <div className={styles['row-group']}>
+            <fieldset className={styles["group-text"]}>
                 <Input
-                    type="date"
-                    placeholder="Date of Birth"
-                    required
-                    autoComplete="bday"
-                    aria-invalid={!!errors?.dateOfBirth}
+                    type="text"
+                    label="Full name"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.fullName}
                     aria-describedby={
-                        errors?.dateOfBirth ? 'dateOfBirth-error' : undefined
+                        errors?.fullName ? 'fullName-error' : undefined
                     }
-                    {...register('dateOfBirth')}
+                    {...register('fullName')}
                 />
-                {errors?.dateOfBirth && (
-                    <ErrorMessage field={errors?.dateOfBirth} />
+                {errors?.fullName && <ErrorMessage field={errors?.fullName} />}
+                <Input
+                    type="email"
+                    label="email"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.email}
+                    aria-describedby={errors?.email ? 'email-error' : undefined}
+                    {...register('email')}
+                />
+                {errors?.email && <ErrorMessage field={errors?.email} />}
+
+                <Input
+                    type="text"
+                    label="username"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.username}
+                    aria-describedby={
+                        errors?.username ? 'username-error' : undefined
+                    }
+                    {...register('username')}
+                />
+                {errors?.username && <ErrorMessage field={errors?.username} />}
+                <Input
+                    type="password"
+                    label="password"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.password}
+                    aria-describedby={
+                        errors?.password ? 'password-error' : undefined
+                    }
+                    {...register('password')}
+                />
+                {errors?.password && <ErrorMessage field={errors?.password} />}
+                <Input
+                    type="password"
+                    label="confirm password"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.confirmPassword}
+                    aria-describedby={
+                        errors?.confirmPassword
+                            ? 'confirmPassword-error'
+                            : undefined
+                    }
+                    {...register('confirmPassword')}
+                />
+                {errors?.confirmPassword && (
+                    <ErrorMessage field={errors?.confirmPassword} />
                 )}
+            </fieldset>
+            <div className={styles["row-groups"]}>
                 <fieldset
-                    className={styles.gender}
+                    className={styles["group-gender"]}
                     aria-describedby={
                         errors?.gender ? 'gender-error' : undefined
-                    }
-                >
-                    <label>Gender:</label>
-                    <label htmlFor="male">
-                        <Input
-                            type="radio"
-                            id="male"
-                            value="male"
-                            {...register('gender')}
-                        />
-                        Male
-                    </label>
-                    <label htmlFor="female">
-                        <Input
-                            type="radio"
-                            id="female"
-                            value="female"
-                            {...register('gender')}
-                        />
-                        Female
-                    </label>
+                    }>
+                        <legend>Gender:</legend>
+                        <label>
+                            <input
+                                type="radio"
+                                value="male"
+                                name="gender"
+                            />
+                            Male
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="male"
+                                name="gender"
+                            />
+                            Female
+                        </label>
                 </fieldset>
-                {errors?.gender && <ErrorMessage field={errors?.gender} />}
+                
+                <fieldset
+                    className={styles["group-dob"]}
+                    aria-describedby={
+                        errors?.dateOfBirth? 'dateOfBirth-error' : undefined
+                    }>
+                    <Input
+                        type="date"
+                        label="date of birth"
+                        autoComplete="bday"
+                        aria-invalid={!!errors?.dateOfBirth}
+                        aria-describedby={
+                            errors?.dateOfBirth ? 'dateOfBirth-error' : undefined
+                        }
+                        {...register('dateOfBirth')}
+                    />
+                    {errors?.dateOfBirth && (
+                        <ErrorMessage field={errors?.dateOfBirth} />
+                    )}
+                </fieldset>
             </div>
-            <br></br>
             <Button
                 type="submit"
                 variant="primary"
@@ -201,6 +201,7 @@ const SignupForm = (...props) => {
                         variant="hyperlink"
                         label="Login Here"
                         size="sm"
+                        onClick={onSwitch}
                     />
                 </Link>
             </p>

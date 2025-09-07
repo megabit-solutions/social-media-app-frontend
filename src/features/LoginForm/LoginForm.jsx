@@ -1,4 +1,4 @@
-import styles from './Form.module.css';
+import styles from './LoginForm.module.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useLoginMutation } from '../../services/authApi';
@@ -11,7 +11,7 @@ import { loginSchema } from '../auth/schemas';
 import { useEffect } from 'react';
 import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 
-const LoginForm = (...props) => {
+const LoginForm = ({onSwitch} , ...props) => {
     const [login, { isError, error, isSuccess, data }] = useLoginMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -58,28 +58,31 @@ const LoginForm = (...props) => {
         >
             <h2 className={styles.heading}>Welcome Back!</h2>
             <p className={styles.subheading}>Stay close, stay connected.</p>
-            <Input
-                type="text"
-                placeholder="Email or username"
-                autoComplete="true"
-                aria-invalid={!!errors?.identifier}
-                aria-describedby={
-                    errors?.identifier ? 'identifier-error' : undefined
-                }
-                {...register('identifier')}
-            />
-            {errors?.identifier && <ErrorMessage field={errors?.identifier} />}
-            <Input
-                type="password"
-                placeholder="Password"
-                autoComplete="true"
-                aria-invalid={!!errors?.password}
-                aria-describedby={
-                    errors?.password ? 'password-error' : undefined
-                }
-                {...register('password')}
-            />
-            {errors?.password && <ErrorMessage field={errors?.password} />}
+            <fieldset>
+                <Input
+                    type="text"
+                    label="Email / Username"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.identifier}
+                    aria-describedby={
+                        errors?.identifier ? 'identifier-error' : undefined
+                    }
+                    {...register('identifier')}
+                />
+                {errors?.identifier && <ErrorMessage field={errors?.identifier} />}
+                <Input
+                    type="password"
+                    label="Password"
+                    autoComplete="true"
+                    aria-invalid={!!errors?.password}
+                    aria-describedby={
+                        errors?.password ? 'password-error' : undefined
+                    }
+                    {...register('password')}
+                />
+                {errors?.password && <ErrorMessage field={errors?.password} />}
+            </fieldset>
+
             <Button
                 id={styles.forgotLink}
                 type="button"
@@ -107,6 +110,7 @@ const LoginForm = (...props) => {
                         variant="hyperlink"
                         label="Sign-up Here"
                         size="sm"
+                        onClick={onSwitch}
                     />
                 </Link>
             </p>
