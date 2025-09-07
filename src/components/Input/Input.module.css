@@ -1,38 +1,43 @@
-.label {
-    font-family: var(--font-family-body);
-    font-weight: 400;
-    font-size: 1rem;
-    color: var(--color-text-bright);
+.group {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    & > p {
-        padding-left: 0.25rem;
-    }
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    top: 0.75rem;
+    left: 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: var(--color-text-label);
+}
+
+.input:invalid ~ label {
+    color: hsl(0, 100%, 60%);
 }
 
 .input {
-    height: 2.5em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    padding-bottom: 0.15em;
-    font-family: var(--font-family-body);
+    height: 4.5em;
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1.25em;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1;
     color: var(--color-text-bright);
-    background-color: var(--color-background);
-    border-color: hsl(0,0%,75%);
-    border-width: 1px;
-    border-radius: 0.25em;
-    border-style: solid;
-    border-width: 1.5px;
-    border-color: hsl(0,0%,75%);
+    background-color: var(--color-input);
+    border-radius: 0.375em;
+    border-style: none;
     &:focus {
-        outline: none;
         box-shadow: none;
-        border-color: var(--color-text-bright);
-        background-color: hsl(0,0%,98%);
+        outline: none;
+        border-style: solid;
+        border-width: 2px;
+        border-color: hsl(50,100%,23%);
+        background-color: hsl(50,100%,98%);
     }
     &::placeholder {
         color: var(--color-text-placeholder);
@@ -40,4 +45,21 @@
         font-size: 1rem;
         font-weight: 400;
     }
+    &:invalid {
+        border: 2px solid red;
+        background-color: var(--color-input);
+    }
+    &:focus:invalid {
+        background-color: hsl(50,100%,98%);
+    }
+}
+
+.group p {
+    position: absolute;
+    bottom: 0rem;
+    left: 1rem;
+    font-weight: 400;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+    color: hsl(0, 100%, 60%);
 }

@@ -15,7 +15,6 @@ const Button = ({
         icon && label ? styles["btn-with-icon"] : "",
         icon && !label ? styles["btn-icon-only"] : "",
     ].join(" ");
-    console.log(classes);
     return (
         <button className={classes} {...props} onClick={onClick}>
             {icon && <span className={styles["btn-icon"]}>{icon}</span>}
