@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import styles from '../styles/AuthPage.module.css';
 
@@ -9,8 +9,6 @@ export default function AuthLayout() {
             ? styles['ini-left']
             : styles['ini-right']
     );
-    console.log(location);
-
     const toggleOverlay = () => {
         setOverlayClass((prev) => {
             if (
