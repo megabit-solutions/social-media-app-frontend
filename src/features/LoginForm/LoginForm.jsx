@@ -11,13 +11,11 @@ import { loginSchema } from '../auth/schemas';
 import { useEffect } from 'react';
 import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 
-const LoginForm = ({onSwitch} , ...props) => {
+const LoginForm = ({ onSwitch }, ...props) => {
     const [login, { isError, error, isSuccess, data }] = useLoginMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const cred = useSelector(selectAccessToken);
-    console.log(cred);
     const {
         register,
         handleSubmit,
@@ -69,7 +67,9 @@ const LoginForm = ({onSwitch} , ...props) => {
                     }
                     {...register('identifier')}
                 />
-                {errors?.identifier && <ErrorMessage field={errors?.identifier} />}
+                {errors?.identifier && (
+                    <ErrorMessage field={errors?.identifier} />
+                )}
                 <Input
                     type="password"
                     label="Password"
@@ -104,7 +104,7 @@ const LoginForm = ({onSwitch} , ...props) => {
             )}
             <p id={styles.signupLink}>
                 Don't have an account?
-                <Link to={'/signup'}>
+                <Link to={'/login'}>
                     <Button
                         type="button"
                         variant="hyperlink"

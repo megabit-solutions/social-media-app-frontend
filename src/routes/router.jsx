@@ -6,11 +6,13 @@ import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
 import HomePage from '../pages/HomePage.jsx';
 import Loading from '../components/Loading/Loading.jsx';
+import AuthLayout from '../pages/AuthLayout.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
 const DashboardPage = React.lazy(() => import('../pages/DashboardPage.jsx'));
 const NotFound = React.lazy(() => import('../pages/NotFound.jsx'));
+const AuthPage = React.lazy(() => import('../pages/AuthPage.jsx'));
 
 const withSuspense = (element) => (
     <Suspense fallback={<Loading />}>{element}</Suspense>
@@ -28,14 +30,23 @@ export const router = createBrowserRouter(
                     element: <HomePage />,
                 },
                 {
-                    path: 'login',
+                    element: withSuspense(<AuthLayout />),
                     loader: loginLoader,
-                    element: withSuspense(<LoginPage />),
+                    children: [
+                        {
+                            path: 'login',
+                            element: withSuspense(<LoginPage />),
+                        },
+                        {
+                            path: 'signup',
+                            element: withSuspense(<SignupPage />),
+                        },
+                    ],
                 },
                 {
-                    path: 'signup',
+                    path: 'auth',
                     loader: loginLoader,
-                    element: withSuspense(<SignupPage />),
+                    element: withSuspense(<AuthPage />),
                 },
                 {
                     element: <RequireAuth />,
