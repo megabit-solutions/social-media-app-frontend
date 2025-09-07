@@ -17,6 +17,7 @@
 .section-1 {
     padding-top: 10rem;
     padding-bottom: 5rem;
+    justify-self: start;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none; 
@@ -28,6 +29,7 @@
 
 .section-2 {
     align-items: center;
+    margin-left: 50vw;
 }
 
 .slider-bg {

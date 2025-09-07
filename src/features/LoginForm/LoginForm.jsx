@@ -104,7 +104,7 @@ const LoginForm = ({ onSwitch }, ...props) => {
             )}
             <p id={styles.signupLink}>
                 Don't have an account?
-                <Link to={'/login'}>
+                <Link to={'/signup'}>
                     <Button
                         type="button"
                         variant="hyperlink"
