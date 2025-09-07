@@ -11,6 +11,7 @@ const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
 const DashboardPage = React.lazy(() => import('../pages/DashboardPage.jsx'));
 const NotFound = React.lazy(() => import('../pages/NotFound.jsx'));
+const AuthLayout = React.lazy(() => import('../pages/AuthLayout.jsx'));
 
 const withSuspense = (element) => (
     <Suspense fallback={<Loading />}>{element}</Suspense>
