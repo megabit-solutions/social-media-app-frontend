@@ -6,9 +6,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signupSchema } from '../auth/schemas';
 import { useSignupMutation } from '../../services/authApi';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
-import { selectAccessToken, setCredentials } from '../auth/authSlice';
+import { setCredentials } from '../auth/authSlice';
 import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 import { Link } from 'react-router';
 
@@ -49,7 +49,6 @@ const SignupForm = ({ onSwitch }, ...props) => {
             const { data: userData, message } = data || {};
             const { accessToken, user } = userData;
             if (accessToken && user) {
-                console.log('working');
                 dispatch(setCredentials({ accessToken, user }));
                 const to = location.state?.from?.pathname || '/dashboard';
                 navigate(to, { replace: true });

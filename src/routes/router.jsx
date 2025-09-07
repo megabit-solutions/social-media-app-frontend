@@ -44,11 +44,6 @@ export const router = createBrowserRouter(
                     ],
                 },
                 {
-                    path: 'auth',
-                    loader: loginLoader,
-                    element: withSuspense(<AuthPage />),
-                },
-                {
                     element: <RequireAuth />,
                     children: [
                         {
