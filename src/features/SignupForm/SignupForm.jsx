@@ -12,13 +12,11 @@ import { selectAccessToken, setCredentials } from '../auth/authSlice';
 import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 import { Link } from 'react-router';
 
-const SignupForm = ({onSwitch}, ...props) => {
+const SignupForm = ({ onSwitch }, ...props) => {
     const [signup, { isError, error, isSuccess, data }] = useSignupMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const cred = useSelector(selectAccessToken);
-    console.log(cred);
     const {
         register,
         handleSubmit,
@@ -77,7 +75,7 @@ const SignupForm = ({onSwitch}, ...props) => {
         >
             <h2 className={styles.heading}>Share Your Moments</h2>
             <p className={styles.subheading}>Welcome To SocialApp</p>
-            <fieldset className={styles["group-text"]}>
+            <fieldset className={styles['group-text']}>
                 <Input
                     type="text"
                     label="Full name"
@@ -137,43 +135,39 @@ const SignupForm = ({onSwitch}, ...props) => {
                     <ErrorMessage field={errors?.confirmPassword} />
                 )}
             </fieldset>
-            <div className={styles["row-groups"]}>
+            <div className={styles['row-groups']}>
                 <fieldset
-                    className={styles["group-gender"]}
+                    className={styles['group-gender']}
                     aria-describedby={
                         errors?.gender ? 'gender-error' : undefined
-                    }>
-                        <legend>Gender:</legend>
-                        <label>
-                            <input
-                                type="radio"
-                                value="male"
-                                name="gender"
-                            />
-                            Male
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                value="male"
-                                name="gender"
-                            />
-                            Female
-                        </label>
+                    }
+                >
+                    <legend>Gender:</legend>
+                    <label>
+                        <input type="radio" value="male" name="gender" />
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" value="male" name="gender" />
+                        Female
+                    </label>
                 </fieldset>
-                
+
                 <fieldset
-                    className={styles["group-dob"]}
+                    className={styles['group-dob']}
                     aria-describedby={
-                        errors?.dateOfBirth? 'dateOfBirth-error' : undefined
-                    }>
+                        errors?.dateOfBirth ? 'dateOfBirth-error' : undefined
+                    }
+                >
                     <Input
                         type="date"
                         label="date of birth"
                         autoComplete="bday"
                         aria-invalid={!!errors?.dateOfBirth}
                         aria-describedby={
-                            errors?.dateOfBirth ? 'dateOfBirth-error' : undefined
+                            errors?.dateOfBirth
+                                ? 'dateOfBirth-error'
+                                : undefined
                         }
                         {...register('dateOfBirth')}
                     />
