@@ -8,17 +8,17 @@
     & .heading {
         width: 100%;
         text-align: center;
-        font-family: var(--font-family-heading);        
+        font-family: var(--font-family-heading);
         font-size: 2.5rem;
         font-weight: 600;
         color: var(--color-text-bright);
-        margin-bottom: 1rem; 
+        margin-bottom: 1rem;
     }
 
     & .subheading {
         width: 100%;
         text-align: center;
-        font-family: var(--font-family-heading);        
+        font-family: var(--font-family-heading);
         font-size: 1.25rem;
         font-weight: 500;
         color: var(--color-text-placeholder);
@@ -43,35 +43,6 @@
         flex-direction: column;
         gap: 1.5rem;
         margin-bottom: 1.5rem;
-    }
-
-    & .group-gender {
-        flex: 1;
-        height: 4.5rem;
-        position: relative;
-        display: flex;
-        gap: 2rem;
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 1.5em;
-        border-radius: 0.375rem;;
-        background-color: var(--color-input);
-
-        & legend {
-            position: absolute;
-            top: 0.75rem;
-            left: 1rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: var(--color-text-label);
-        }
-
-        & label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
     }
 
     & > #forgotLink {

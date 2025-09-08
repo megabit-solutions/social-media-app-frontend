@@ -14,46 +14,50 @@
 }
 
 :root,
-[data-theme="light"] {
+[data-theme='light'] {
     --color-background: hsl(0, 0%, 100%);
     --color-text-bright: hsl(0, 0%, 4%);
     --color-text-dim: hsl(0, 0%, 30%);
     --color-text-label: hsl(0, 0%, 60%);
     --color-text-placeholder: hsl(0, 0%, 70%);
-    --color-input: hsl(0,0%,97%);
-    --color-primary-50:  hsl(50, 100%, 95%);
+    --color-input: hsl(0, 0%, 97%);
+    --color-primary-50: hsl(50, 100%, 95%);
     --color-primary-100: hsl(50, 100%, 90%);
     --color-primary-200: hsl(50, 100%, 80%);
     --color-primary-300: hsl(50, 100%, 70%);
     --color-primary-400: hsl(50, 100%, 60%);
     --color-primary-500: hsl(50, 100%, 48%);
-    --color-primary-600: hsl(50, 100%, 45%); 
+    --color-primary-600: hsl(50, 100%, 45%);
     --color-primary-700: hsl(50, 100%, 40%);
     --color-primary-800: hsl(50, 100%, 25%);
     --color-primary-900: hsl(50, 100%, 15%);
 }
 
 /* Dark theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
     --color-background: hsl(0, 0%, 4%);
     --color-text-bright: hsl(0, 0%, 100%);
     --color-text-dim: hsl(0, 0%, 80%);
-    --color-primary-50:  hsl(50, 100%, 5%);
+    --color-primary-50: hsl(50, 100%, 5%);
     --color-primary-100: hsl(51, 100%, 10%);
     --color-primary-200: hsl(50, 100%, 20%);
     --color-primary-300: hsl(50, 100%, 30%);
     --color-primary-400: hsl(50, 100%, 40%);
     --color-primary-500: hsl(50, 100%, 52%);
-    --color-primary-600: hsl(50, 100%, 55%); 
+    --color-primary-600: hsl(50, 100%, 55%);
     --color-primary-700: hsl(50, 100%, 60%);
     --color-primary-800: hsl(50, 100%, 65%);
     --color-primary-900: hsl(50, 100%, 70%);
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
-input[type=number] {
+input[type='number'] {
     -moz-appearance: textfield;
+}
+
+#dateOfBirth-error {
+    bottom: -0.5rem;
 }
