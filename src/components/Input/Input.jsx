@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Input.module.css';
+import ErrorMessage from '../FormErrorMessage/ErrorMessage';
 
 const Input = React.forwardRef(
-    ({ label = '', ErrorMsg = null, ...props }, ref) => {
-        // console.log([styles.input, {...props}].join(' '));
+    ({ label = '', field = null, children, ...props }, ref) => {
         const input = <input ref={ref} className={styles.input} {...props} />;
         return (
             <div className={styles.group}>
@@ -18,7 +18,7 @@ const Input = React.forwardRef(
                 ) : (
                     <></>
                 )}
-                {ErrorMsg}
+                {field && <ErrorMessage field={field} />}
             </div>
         );
     }
