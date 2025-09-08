@@ -83,19 +83,18 @@ const SignupForm = ({ onSwitch }, ...props) => {
                     aria-describedby={
                         errors?.fullName ? 'fullName-error' : undefined
                     }
+                    field={errors?.fullName}
                     {...register('fullName')}
                 />
-                {errors?.fullName && <ErrorMessage field={errors?.fullName} />}
                 <Input
                     type="email"
                     label="email"
                     autoComplete="true"
                     aria-invalid={!!errors?.email}
                     aria-describedby={errors?.email ? 'email-error' : undefined}
+                    field={errors?.email}
                     {...register('email')}
                 />
-                {errors?.email && <ErrorMessage field={errors?.email} />}
-
                 <Input
                     type="text"
                     label="username"
@@ -104,9 +103,9 @@ const SignupForm = ({ onSwitch }, ...props) => {
                     aria-describedby={
                         errors?.username ? 'username-error' : undefined
                     }
+                    field={errors?.username}
                     {...register('username')}
                 />
-                {errors?.username && <ErrorMessage field={errors?.username} />}
                 <Input
                     type="password"
                     label="password"
@@ -115,9 +114,9 @@ const SignupForm = ({ onSwitch }, ...props) => {
                     aria-describedby={
                         errors?.password ? 'password-error' : undefined
                     }
+                    field={errors?.password}
                     {...register('password')}
                 />
-                {errors?.password && <ErrorMessage field={errors?.password} />}
                 <Input
                     type="password"
                     label="confirm password"
@@ -128,11 +127,9 @@ const SignupForm = ({ onSwitch }, ...props) => {
                             ? 'confirmPassword-error'
                             : undefined
                     }
+                    field={errors?.confirmPassword}
                     {...register('confirmPassword')}
                 />
-                {errors?.confirmPassword && (
-                    <ErrorMessage field={errors?.confirmPassword} />
-                )}
             </fieldset>
             <div className={styles['row-groups']}>
                 <fieldset
@@ -143,13 +140,22 @@ const SignupForm = ({ onSwitch }, ...props) => {
                 >
                     <legend>Gender:</legend>
                     <label>
-                        <input type="radio" value="male" name="gender" />
+                        <input
+                            type="radio"
+                            value="male"
+                            {...register('gender')}
+                        />
                         Male
                     </label>
                     <label>
-                        <input type="radio" value="male" name="gender" />
+                        <input
+                            type="radio"
+                            value="female"
+                            {...register('gender')}
+                        />
                         Female
                     </label>
+                    {errors?.gender && <ErrorMessage field={errors.gender} />}
                 </fieldset>
 
                 <fieldset
@@ -168,11 +174,9 @@ const SignupForm = ({ onSwitch }, ...props) => {
                                 ? 'dateOfBirth-error'
                                 : undefined
                         }
+                        field={errors?.dateOfBirth}
                         {...register('dateOfBirth')}
                     />
-                    {errors?.dateOfBirth && (
-                        <ErrorMessage field={errors?.dateOfBirth} />
-                    )}
                 </fieldset>
             </div>
             <Button

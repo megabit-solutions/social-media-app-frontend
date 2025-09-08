@@ -65,11 +65,9 @@ const LoginForm = ({ onSwitch }, ...props) => {
                     aria-describedby={
                         errors?.identifier ? 'identifier-error' : undefined
                     }
+                    field={errors?.identifier}
                     {...register('identifier')}
                 />
-                {errors?.identifier && (
-                    <ErrorMessage field={errors?.identifier} />
-                )}
                 <Input
                     type="password"
                     label="Password"
@@ -78,9 +76,9 @@ const LoginForm = ({ onSwitch }, ...props) => {
                     aria-describedby={
                         errors?.password ? 'password-error' : undefined
                     }
+                    field={errors?.password}
                     {...register('password')}
                 />
-                {errors?.password && <ErrorMessage field={errors?.password} />}
             </fieldset>
 
             <Button
