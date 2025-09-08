@@ -13,7 +13,7 @@
     color: var(--color-text-label);
 }
 
-.input:invalid ~ label {
+.input[aria-invalid='true'] ~ label {
     color: hsl(0, 100%, 60%);
 }
 
@@ -36,8 +36,8 @@
         outline: none;
         border-style: solid;
         border-width: 2px;
-        border-color: hsl(50,100%,23%);
-        background-color: hsl(50,100%,98%);
+        border-color: hsl(50, 100%, 23%);
+        background-color: hsl(50, 100%, 98%);
     }
     &::placeholder {
         color: var(--color-text-placeholder);
@@ -45,12 +45,12 @@
         font-size: 1rem;
         font-weight: 400;
     }
-    &:invalid {
+    &[aria-invalid='true'] {
         border: 2px solid red;
         background-color: var(--color-input);
     }
-    &:focus:invalid {
-        background-color: hsl(50,100%,98%);
+    &:focus[aria-invalid='true'] {
+        background-color: hsl(50, 100%, 98%);
     }
 }
 
