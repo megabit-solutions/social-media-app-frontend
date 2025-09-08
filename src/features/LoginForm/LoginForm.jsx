@@ -53,6 +53,7 @@ const LoginForm = ({ onSwitch }, ...props) => {
             {...props}
             onSubmit={handleSubmit(onSubmit)}
             noValidate
+            autoComplete="on"
         >
             <h2 className={styles.heading}>Welcome Back!</h2>
             <p className={styles.subheading}>Stay close, stay connected.</p>
@@ -60,27 +61,25 @@ const LoginForm = ({ onSwitch }, ...props) => {
                 <Input
                     type="text"
                     label="Email / Username"
-                    autoComplete="true"
+                    autoComplete="username"
                     aria-invalid={!!errors?.identifier}
                     aria-describedby={
                         errors?.identifier ? 'identifier-error' : undefined
                     }
+                    field={errors?.identifier}
                     {...register('identifier')}
                 />
-                {errors?.identifier && (
-                    <ErrorMessage field={errors?.identifier} />
-                )}
                 <Input
                     type="password"
                     label="Password"
-                    autoComplete="true"
+                    autoComplete="current-password"
                     aria-invalid={!!errors?.password}
                     aria-describedby={
                         errors?.password ? 'password-error' : undefined
                     }
+                    field={errors?.password}
                     {...register('password')}
                 />
-                {errors?.password && <ErrorMessage field={errors?.password} />}
             </fieldset>
 
             <Button

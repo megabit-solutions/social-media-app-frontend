@@ -1,24 +1,29 @@
 import React from 'react';
 import styles from './Input.module.css';
+import ErrorMessage from '../FormErrorMessage/ErrorMessage';
 
 const Input = React.forwardRef(
-    ({ label = '', ErrorMsg = null, ...props }, ref) => {
-        // console.log([styles.input, {...props}].join(' '));
-        const input = <input ref={ref} className={styles.input} {...props} />;
+    ({ label = '', field = null, name, ...props }, ref) => {
+        const input = (
+            <input
+                ref={ref}
+                className={styles.input}
+                id={name}
+                name={name}
+                {...props}
+            />
+        );
         return (
             <div className={styles.group}>
                 {input}
                 {label ? (
-                    <label
-                        className={styles.label}
-                        htmlFor={props.htmlFor ?? ''}
-                    >
+                    <label className={styles.label} htmlFor={name}>
                         {label}
                     </label>
                 ) : (
                     <></>
                 )}
-                {ErrorMsg}
+                {field && <ErrorMessage name={name} field={field} />}
             </div>
         );
     }

@@ -13,7 +13,7 @@
     color: var(--color-text-label);
 }
 
-.input:invalid ~ label {
+.input[aria-invalid='true'] ~ label {
     color: hsl(0, 100%, 60%);
 }
 
@@ -45,13 +45,11 @@
         font-size: 1rem;
         font-weight: 400;
     }
-
-    &:invalid {
+    &[aria-invalid='true'] {
         border: 2px solid red;
         background-color: var(--color-input);
     }
-
-    &:focus:invalid {
+    &:focus[aria-invalid='true'] {
         background-color: hsl(50, 100%, 98%);
     }
 }

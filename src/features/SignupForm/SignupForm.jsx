@@ -9,8 +9,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 import { setCredentials } from '../auth/authSlice';
-import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 import { Link } from 'react-router';
+import GenderInput from '../../components/Input/GenderInput/GenderInput';
 
 const SignupForm = ({ onSwitch }, ...props) => {
     const [signup, { isError, error, isSuccess, data }] = useSignupMutation();
@@ -78,79 +78,70 @@ const SignupForm = ({ onSwitch }, ...props) => {
                 <Input
                     type="text"
                     label="Full name"
-                    autoComplete="true"
+                    autoComplete="name"
                     aria-invalid={!!errors?.fullName}
                     aria-describedby={
                         errors?.fullName ? 'fullName-error' : undefined
                     }
+                    field={errors?.fullName}
                     {...register('fullName')}
                 />
-                {errors?.fullName && <ErrorMessage field={errors?.fullName} />}
                 <Input
                     type="email"
                     label="email"
-                    autoComplete="true"
+                    autoComplete="email"
                     aria-invalid={!!errors?.email}
                     aria-describedby={errors?.email ? 'email-error' : undefined}
+                    field={errors?.email}
                     {...register('email')}
                 />
-                {errors?.email && <ErrorMessage field={errors?.email} />}
-
                 <Input
                     type="text"
                     label="username"
-                    autoComplete="true"
+                    autoComplete="username"
                     aria-invalid={!!errors?.username}
                     aria-describedby={
                         errors?.username ? 'username-error' : undefined
                     }
+                    field={errors?.username}
                     {...register('username')}
                 />
-                {errors?.username && <ErrorMessage field={errors?.username} />}
                 <Input
                     type="password"
                     label="password"
-                    autoComplete="true"
+                    autoComplete="new-password"
                     aria-invalid={!!errors?.password}
                     aria-describedby={
                         errors?.password ? 'password-error' : undefined
                     }
+                    field={errors?.password}
                     {...register('password')}
                 />
-                {errors?.password && <ErrorMessage field={errors?.password} />}
                 <Input
                     type="password"
                     label="confirm password"
-                    autoComplete="true"
+                    autoComplete="new-password"
                     aria-invalid={!!errors?.confirmPassword}
                     aria-describedby={
                         errors?.confirmPassword
                             ? 'confirmPassword-error'
                             : undefined
                     }
+                    field={errors?.confirmPassword}
                     {...register('confirmPassword')}
                 />
-                {errors?.confirmPassword && (
-                    <ErrorMessage field={errors?.confirmPassword} />
-                )}
             </fieldset>
             <div className={styles['row-groups']}>
-                <fieldset
-                    className={styles['group-gender']}
+                <GenderInput
+                    aria-invalid={!!errors?.gender}
                     aria-describedby={
                         errors?.gender ? 'gender-error' : undefined
                     }
-                >
-                    <legend>Gender:</legend>
-                    <label>
-                        <input type="radio" value="male" name="gender" />
-                        Male
-                    </label>
-                    <label>
-                        <input type="radio" value="male" name="gender" />
-                        Female
-                    </label>
-                </fieldset>
+                    errors={errors}
+                    type="radio"
+                    autoComplete="sex"
+                    {...register('gender')}
+                />
 
                 <fieldset
                     className={styles['group-dob']}
@@ -168,11 +159,9 @@ const SignupForm = ({ onSwitch }, ...props) => {
                                 ? 'dateOfBirth-error'
                                 : undefined
                         }
+                        field={errors?.dateOfBirth}
                         {...register('dateOfBirth')}
                     />
-                    {errors?.dateOfBirth && (
-                        <ErrorMessage field={errors?.dateOfBirth} />
-                    )}
                 </fieldset>
             </div>
             <Button
