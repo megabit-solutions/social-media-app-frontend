@@ -1,6 +1,6 @@
-const ErrorMessage = ({ field }) => {
+const ErrorMessage = ({ name, field }) => {
     return (
-        <p id={field} role="alert">
+        <p id={`${name}-error`} role="alert">
             {field.message}
         </p>
     );

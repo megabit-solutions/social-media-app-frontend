@@ -3,22 +3,27 @@ import styles from './Input.module.css';
 import ErrorMessage from '../FormErrorMessage/ErrorMessage';
 
 const Input = React.forwardRef(
-    ({ label = '', field = null, children, ...props }, ref) => {
-        const input = <input ref={ref} className={styles.input} {...props} />;
+    ({ label = '', field = null, name, ...props }, ref) => {
+        const input = (
+            <input
+                ref={ref}
+                className={styles.input}
+                id={name}
+                name={name}
+                {...props}
+            />
+        );
         return (
             <div className={styles.group}>
                 {input}
                 {label ? (
-                    <label
-                        className={styles.label}
-                        htmlFor={props.htmlFor ?? ''}
-                    >
+                    <label className={styles.label} htmlFor={name}>
                         {label}
                     </label>
                 ) : (
                     <></>
                 )}
-                {field && <ErrorMessage field={field} />}
+                {field && <ErrorMessage name={name} field={field} />}
             </div>
         );
     }
