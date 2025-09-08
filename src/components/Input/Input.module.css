@@ -31,26 +31,28 @@
     background-color: var(--color-input);
     border-radius: 0.375em;
     border-style: none;
+
     &:focus {
         box-shadow: none;
         outline: none;
-        border-style: solid;
-        border-width: 2px;
-        border-color: hsl(50,100%,23%);
-        background-color: hsl(50,100%,98%);
+        box-shadow: 0 0 0 2px hsl(50, 100%, 23%);
+        background-color: hsl(50, 100%, 98%);
     }
+
     &::placeholder {
         color: var(--color-text-placeholder);
         line-height: 1;
         font-size: 1rem;
         font-weight: 400;
     }
+
     &:invalid {
         border: 2px solid red;
         background-color: var(--color-input);
     }
+
     &:focus:invalid {
-        background-color: hsl(50,100%,98%);
+        background-color: hsl(50, 100%, 98%);
     }
 }
 
