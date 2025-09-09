@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '../auth/schemas';
 import { useEffect } from 'react';
-import ErrorMessage from '../../components/FormErrorMessage/ErrorMessage';
 
 const LoginForm = ({ onSwitch }, ...props) => {
     const [login, { isError, error, isSuccess, data }] = useLoginMutation();
