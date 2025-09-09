@@ -52,4 +52,13 @@
         font-size: var(--text-sm);
         gap: var(--space-xs);
     }
+
+    & .form-error {
+        padding-top: var(--space-md);
+        padding-left: var(--space-md);
+        font-weight: 400;
+        font-size: var(--text-xs);
+        text-transform: capitalize;
+        color: var(--color-error);
+    }
 }

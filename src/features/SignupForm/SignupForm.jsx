@@ -162,7 +162,7 @@ const SignupForm = ({ onSwitch }, ...props) => {
                 size="md"
             />
             {isError && (
-                <p style={{ color: 'crimson' }}>
+                <p className={styles["form-error"]}>
                     {error?.data?.message || 'Registration failed'}
                 </p>
             )}
