@@ -7,56 +7,49 @@
 
     & .heading {
         width: 100%;
+        margin-bottom: var(--space-md);
         text-align: center;
         font-family: var(--font-family-heading);
-        font-size: 2.5rem;
+        font-size: calc(2 * var(--text-lg));
         font-weight: 600;
         color: var(--color-text-bright);
-        margin-bottom: 1rem;
     }
 
     & .subheading {
         width: 100%;
+        margin-bottom: calc(2 * var(--space-xl));
         text-align: center;
         font-family: var(--font-family-heading);
-        font-size: 1.25rem;
+        font-size: var(--text-lg);
         font-weight: 500;
         color: var(--color-text-placeholder);
-        margin-bottom: 3rem;
     }
 
     & fieldset {
+        display: flex;
         outline: none;
         border: none;
-        display: flex;
     }
 
-    & .row-groups {
-        display: flex;
-        flex-direction: row;
-        gap: 3rem;
-        margin-bottom: 1.5rem;
-    }
-
-    & .group-text {
+    & > fieldset {
         flex: 1;
         flex-direction: column;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-2xl);
+        gap: var(--space-xl);
     }
 
     & > #forgotLink {
-        margin-bottom: 2rem;
+        margin-bottom: var(--space-2xl);
         margin-left: auto;
-        margin-right: 0.5rem;
+        margin-right: var(--space-xs);
     }
 
     & > #signupLink {
-        font-size: 1rem;
-        margin-top: 2rem;
         display: flex;
-        gap: 0.5rem;
+        margin-top: var(--space-2xl);
         margin-left: auto;
         margin-right: auto;
+        font-size: var(--text-sm);
+        gap: var(--space-xs);
     }
 }

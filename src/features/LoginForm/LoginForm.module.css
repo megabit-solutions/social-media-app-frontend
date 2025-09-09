@@ -7,86 +7,45 @@
 
     & .heading {
         width: 100%;
+        margin-bottom: var(--space-md);
         text-align: center;
-        font-family: var(--font-family-heading);        
-        font-size: 2.5rem;
+        font-family: var(--font-family-heading);
+        font-size: calc(2 * var(--text-lg));
         font-weight: 600;
         color: var(--color-text-bright);
-        margin-bottom: 1rem; 
     }
 
     & .subheading {
         width: 100%;
+        margin-bottom: calc(2 * var(--space-xl));
         text-align: center;
-        font-family: var(--font-family-heading);        
-        font-size: 1.25rem;
+        font-family: var(--font-family-heading);
+        font-size: var(--text-lg);
         font-weight: 500;
         color: var(--color-text-placeholder);
-        margin-bottom: 3rem;
     }
 
     & fieldset {
-        outline: none;
-        border: none;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .row-group {
-        display: flex;
-        gap: 2rem;
-        padding: 0;
-        margin: 0;
+        margin-bottom: var(--space-xs);
+        gap: var(--space-xl);
+        outline: none;
         border: none;
-
-        & > Input {
-            flex: 1;
-        }
-
-        & #gender {
-            flex: 1;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            border-style: solid;
-            border-radius: 0.25rem;
-            border-width: 1.5px;
-            border-color: var(--color-text-placeholder);
-
-            & > p {
-                color: var(--color-text-dim);
-                width: min-content;
-                height: min-content;
-                line-height: 1;
-                padding: 0;
-                margin: 0;
-            }
-
-            & > label {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 0.25rem;
-            }
-        }
-
     }
 
     & > #forgotLink {
-        margin-bottom: 2rem;
+        margin-bottom: var(--space-2xl);
         margin-left: auto;
-        margin-right: 0.5rem;
+        margin-right: var(--space-xs);
     }
 
     & > #signupLink {
-        font-size: 1rem;
-        margin-top: 2.125rem;
         display: flex;
-        gap: 0.5rem;
+        margin-top: var(--space-2xl);
         margin-left: auto;
         margin-right: auto;
+        font-size: var(--text-sm);
+        gap: var(--space-xs);
     }
 }
