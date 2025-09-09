@@ -5,26 +5,26 @@
 
 .label {
     position: absolute;
-    top: 0.75rem;
-    left: 1rem;
+    top: var(--space-sm);
+    left: var(--space-md);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: var(--text-xs);
     text-transform: uppercase;
     color: var(--color-text-label);
 }
 
 .input[aria-invalid='true'] ~ label {
-    color: hsl(0, 100%, 60%);
+    color: var(--color-error);
 }
 
 .input {
     height: 4.5em;
     width: 100%;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 1.25em;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-sm);
     font-weight: 400;
     line-height: 1;
     color: var(--color-text-bright);
@@ -42,11 +42,11 @@
     &::placeholder {
         color: var(--color-text-placeholder);
         line-height: 1;
-        font-size: 1rem;
+        font-size: var(--text-sm);
         font-weight: 400;
     }
     &[aria-invalid='true'] {
-        border: 2px solid red;
+        box-shadow: 0 0 0 2px var(--color-error);
         background-color: var(--color-input);
     }
     &:focus[aria-invalid='true'] {
@@ -56,10 +56,10 @@
 
 .group p {
     position: absolute;
-    bottom: 0rem;
-    left: 1rem;
+    bottom: 0;
+    left: var(--space-md);
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: var(--text-xs);
     text-transform: capitalize;
-    color: hsl(0, 100%, 60%);
+    color: var(--color-error);
 }
