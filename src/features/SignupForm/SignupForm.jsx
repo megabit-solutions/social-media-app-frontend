@@ -74,7 +74,7 @@ const SignupForm = ({ onSwitch }, ...props) => {
         >
             <h2 className={styles.heading}>Share Your Moments</h2>
             <p className={styles.subheading}>Welcome To SocialApp</p>
-            <fieldset className={styles['group-text']}>
+            <fieldset className={styles['input-set']}>
                 <Input
                     type="text"
                     label="Full name"
@@ -130,8 +130,7 @@ const SignupForm = ({ onSwitch }, ...props) => {
                     field={errors?.confirmPassword}
                     {...register('confirmPassword')}
                 />
-            </fieldset>
-            <div className={styles['row-groups']}>
+
                 <GenderInput
                     aria-invalid={!!errors?.gender}
                     aria-describedby={
@@ -143,27 +142,19 @@ const SignupForm = ({ onSwitch }, ...props) => {
                     {...register('gender')}
                 />
 
-                <fieldset
-                    className={styles['group-dob']}
+                <Input
+                    // className={styles['group-dob']}
+                    type="date"
+                    label="date of birth"
+                    autoComplete="bday"
+                    aria-invalid={!!errors?.dateOfBirth}
                     aria-describedby={
                         errors?.dateOfBirth ? 'dateOfBirth-error' : undefined
                     }
-                >
-                    <Input
-                        type="date"
-                        label="date of birth"
-                        autoComplete="bday"
-                        aria-invalid={!!errors?.dateOfBirth}
-                        aria-describedby={
-                            errors?.dateOfBirth
-                                ? 'dateOfBirth-error'
-                                : undefined
-                        }
-                        field={errors?.dateOfBirth}
-                        {...register('dateOfBirth')}
-                    />
-                </fieldset>
-            </div>
+                    field={errors?.dateOfBirth}
+                    {...register('dateOfBirth')}
+                />
+            </fieldset>
             <Button
                 type="submit"
                 variant="primary"
