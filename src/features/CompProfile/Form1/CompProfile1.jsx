@@ -1,9 +1,10 @@
-import styles from './CompProfile.module.css';
-import Button from '../../components/Button/Button.jsx';
+import cStyles from '../CompProfile.module.css';
+import styles from './CompProfile1.module.css';
+import Button from '../../../components/Button/Button.jsx';
 import { useRef, useState, usState } from 'react';
 import clsx from 'clsx';
 
-function CompProfile() {
+function CompProfile1() {
     const [profilePic, setProfilePic] = useState('/profile.png');
     const [coverPic, setCoverPic] = useState('/profile.png');
     const fileProfileRef = useRef(null);
@@ -30,14 +31,14 @@ function CompProfile() {
     };
 
     return (
-        <div className={styles.modal}>
-            <form className={styles.form}>
+        <div className={cStyles.modal}>
+            <form className={cStyles.form}>
                 <h2>Show Who You Are</h2>
 
                 <fieldset
                     className={clsx(
                         styles['cover-pic-group'],
-                        styles['fieldset']
+                        cStyles['fieldset']
                     )}
                 >
                     <legend>cover photo</legend>
@@ -65,7 +66,7 @@ function CompProfile() {
                 <fieldset
                     className={clsx(
                         styles['profile-pic-group'],
-                        styles['fieldset']
+                        cStyles['fieldset']
                     )}
                 >
                     <legend>profile photo</legend>
@@ -96,7 +97,7 @@ function CompProfile() {
                 </fieldset>
 
                 <fieldset
-                    className={clsx(styles['bio-group'], styles['fieldset'])}
+                    className={clsx(styles['bio-group'], cStyles['fieldset'])}
                 >
                     <legend>bio</legend>
                     <textarea
@@ -107,7 +108,7 @@ function CompProfile() {
                         maxLength={250}
                     ></textarea>
                 </fieldset>
-                <fieldset className={clsx(styles['btns-group'])}>
+                <fieldset className={clsx(cStyles['btns-group'])}>
                     <Button
                         type="button"
                         variant="fourth"
@@ -123,7 +124,7 @@ function CompProfile() {
                     />
                 </fieldset>
             </form>
-            <div className={styles.hero}>
+            <div className={cStyles.hero}>
                 {/* <img
                     className={styles['hero-img']}
                     src="../../assets/auth_page_bg_1.avif"
@@ -136,7 +137,4 @@ function CompProfile() {
     );
 }
 
-export default CompProfile;
-
-// make text area component
-//
+export default CompProfile1;
