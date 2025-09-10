@@ -90,158 +90,6 @@
     }
 }
 
-.cover-pic-group {
-    --btn-size: calc(3.5 * var(--space-md));
-    --cover-size: calc(7 * var(--space-md));
-    height: var(--cover-size);
-    margin-top: var(--space-2xl);
-    position: relative;
-
-    & > img {
-        height: var(--cover-size);
-        width: 100%;
-        border-radius: var(--border-md);
-        object-fit: cover;
-        object-position: center;
-    }
-
-    & .btn-wrapper {
-        position: absolute;
-        align-self: center;
-        left: var(--space-xl);
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: var(--border-circle);
-        min-height: var(--btn-size);
-        min-width: var(--btn-size);
-        max-height: var(--btn-size);
-        max-width: var(--btn-size);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-
-        & img {
-            --img-size: calc(1.75 * var(--space-md));
-            min-height: var(--img-size);
-            min-width: var(--img-size);
-            max-height: var(--img-size);
-            max-width: var(--img-size);
-        }
-
-        & input {
-            display: none;
-        }
-    }
-}
-
-.profile-pic-group {
-    --pic-size: calc(5 * var(--space-md));
-    margin-top: calc(var(--space-2xl));
-    padding: var(--space-md);
-    gap: var(--space-md);
-
-    & .pic-wrapper,
-    .pic-wrapper * {
-        min-height: var(--pic-size);
-        min-width: var(--pic-size);
-        max-height: var(--pic-size);
-        max-width: var(--pic-size);
-    }
-
-    & .pic-wrapper {
-        cursor: pointer;
-
-        & .profile-pic {
-            border-radius: var(--border-circle);
-            background-color: gray;
-            position: relative;
-            z-index: 0;
-        }
-
-        &:hover::after {
-            position: absolute;
-            content: '';
-            inset: var(--space-md);
-            min-height: var(--pic-size);
-            min-width: var(--pic-size);
-            max-height: var(--pic-size);
-            max-width: var(--pic-size);
-            border-radius: var(--border-circle);
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        & input {
-            display: none;
-        }
-    }
-
-    & .text-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
-        justify-content: center;
-        & .username {
-            font-size: var(--text-sm);
-            font-weight: 500;
-            color: var(--color-text-bright);
-        }
-        & .info {
-            font-size: var(--text-xs);
-            color: var(--color-text-label);
-        }
-    }
-}
-
-.bio-group {
-    display: none;
-    --bio-size: calc(7 * var(--space-md));
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-md);
-
-    & .bio {
-        background-color: var(--color-input);
-        min-width: 100%;
-        min-height: var(--bio-size);
-        padding: var(--space-md);
-        font-size: var(--text-sm);
-        font-weight: 400;
-        line-height: 1.2;
-        color: var(--color-text-bright);
-        background-color: var(--color-input);
-        border-radius: var(--border-md);
-        border-style: none;
-
-        &:focus {
-            box-shadow: none;
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(50, 100%, 23%);
-            background-color: hsl(50, 100%, 98%);
-        }
-
-        &::placeholder {
-            color: var(--color-text-label);
-            font-size: var(--text-sm);
-            font-weight: 400;
-            line-height: 1;
-        }
-
-        &[aria-invalid='true'] {
-            box-shadow: 0 0 0 2px var(--color-error);
-            background-color: var(--color-input);
-        }
-
-        &:focus[aria-invalid='true'] {
-            background-color: hsl(50, 100%, 98%);
-        }
-    }
-}
-
 .btns-group {
     display: flex;
     gap: var(--space-2xs);
@@ -251,15 +99,7 @@
 }
 
 @media (min-width: 480px) {
-    .profile-pic-group div {
-        gap: var(--space-md);
-    }
-    .profile-pic-group .username {
-        font-size: var(--text-md);
-    }
-    .profile-pic-group .info {
-        font-size: var(--text-sm);
-    }
+    /*  */
 }
 
 @media (min-width: 640px) {
@@ -275,9 +115,6 @@
         & h2 {
             font-size: calc(1.25 * var(--text-xl));
         }
-    }
-    .cover-pic-group {
-        --cover-size: calc(10 * var(--space-md));
     }
 }
 

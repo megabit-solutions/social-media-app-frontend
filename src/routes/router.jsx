@@ -6,13 +6,20 @@ import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
 import HomePage from '../pages/HomePage.jsx';
 import Loading from '../components/Loading/Loading.jsx';
-import CompProfile from '../features/CompProfile/CompProfile1.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
 const DashboardPage = React.lazy(() => import('../pages/DashboardPage.jsx'));
 const NotFound = React.lazy(() => import('../pages/NotFound.jsx'));
 const AuthLayout = React.lazy(() => import('../pages/AuthLayout.jsx'));
+
+// Temp
+const CompProfile1 = React.lazy(
+    () => import('../features/CompProfile/Form1/CompProfile1.jsx')
+);
+const CompProfile2 = React.lazy(
+    () => import('../features/CompProfile/Form2/CompProfile2.jsx')
+);
 
 const withSuspense = (element) => (
     <Suspense fallback={<Loading />}>{element}</Suspense>
@@ -57,7 +64,9 @@ export const router = createBrowserRouter(
                     ],
                 },
 
-                { path: 'profile', element: withSuspense(<CompProfile />) },
+                // Temp
+                { path: 'profile1', element: withSuspense(<CompProfile1 />) },
+                { path: 'profile2', element: withSuspense(<CompProfile2 />) },
 
                 { path: '*', element: withSuspense(<NotFound />) },
             ],
