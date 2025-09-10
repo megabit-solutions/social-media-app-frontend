@@ -39,6 +39,6 @@
         font-weight: 400;
         font-size: var(--text-xs);
         text-transform: capitalize;
-        color: hsl(0, 100%, 60%);
+        color: var(--color-error);
     }
 }

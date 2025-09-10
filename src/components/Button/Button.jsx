@@ -2,9 +2,10 @@ import styles from './Button.module.css';
 
 const Button = ({
     variant = 'primary',
-    size = 'md',
+    size = 'even',
     label,
     icon,
+    disabled,
     onClick,
     ...props
 }) => {
@@ -12,6 +13,7 @@ const Button = ({
         styles.btn,
         styles[`btn-${variant}`],
         styles[`btn-${size}`],
+        disabled && styles['btn-disabled'],
         icon && label ? styles['btn-with-icon'] : '',
         icon && !label ? styles['btn-icon-only'] : '',
     ].join(' ');
