@@ -6,6 +6,7 @@ import RouteErrorBoundary from './RouteErrorBoundary';
 import { loginLoader } from './loginLoader.js';
 import HomePage from '../pages/HomePage.jsx';
 import Loading from '../components/Loading/Loading.jsx';
+import CompProfile from '../features/CompProfile/CompProfile1.jsx';
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage.jsx'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage.jsx'));
@@ -55,6 +56,8 @@ export const router = createBrowserRouter(
                         },
                     ],
                 },
+
+                { path: 'profile', element: withSuspense(<CompProfile />) },
 
                 { path: '*', element: withSuspense(<NotFound />) },
             ],

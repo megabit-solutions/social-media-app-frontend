@@ -6,6 +6,12 @@
     cursor: pointer;
 }
 
+.btn-even {
+    padding: var(--space-sm);
+    font-size: var(--text-sm);
+    border-radius: 0.25rem;
+}
+
 .btn-sm {
     padding: var(--space-sm) calc(2 * var(--space-sm) + var(--space-2xs));
     font-size: var(--text-sm);
@@ -14,7 +20,6 @@
 
 .btn-md {
     padding: var(--space-md) calc(2 * var(--space-md) + var(--space-2xs));
-
     font-size: var(--text-md);
     border-radius: 0.3125rem;
 }
@@ -63,6 +68,18 @@
     }
 }
 
+.btn-fourth {
+    background-color: transparent;
+    color: var(--color-text-label);
+    font-size: var(--text-sm);
+    &:hover {
+        color: var(--color-text-bright);
+    }
+    &:active {
+        color: var(--color-text-label);
+    }
+}
+
 .btn-hyperlink {
     width: fit-content !important;
     padding: 0 !important;
@@ -71,5 +88,17 @@
     color: var(--color-primary-600);
     &:active {
         color: var(--color-primary-800);
+    }
+}
+
+.btn-disabled {
+    background-color: hsl(0, 0%, 93%) !important;
+    cursor: not-allowed !important;
+    color: var(--color-text-label) !important;
+    &:hover {
+        color: var(--color-text-label) !important;
+    }
+    &:active {
+        color: var(--color-text-label) !important;
     }
 }
