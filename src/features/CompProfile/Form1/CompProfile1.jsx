@@ -31,7 +31,7 @@ function CompProfile1() {
     };
 
     return (
-        <div className={cStyles.modal}>
+        <section className={cStyles.modal}>
             <form className={cStyles.form}>
                 <h2>Show Who You Are</h2>
 
@@ -118,22 +118,20 @@ function CompProfile1() {
                     <Button
                         type="button"
                         variant="primary"
-                        label="Save Changes"
+                        label="Update Profile"
                         size="sm"
-                        // disabled="true"
+                        // disabled={true}
                     />
                 </fieldset>
             </form>
             <div className={cStyles.hero}>
-                {/* <img
+                <img
                     className={styles['hero-img']}
-                    src="../../assets/auth_page_bg_1.avif"
+                    src="/comp_profile_1.png"
                     alt="Add a profile photo"
-                    height={100}
-                    width={200}
-                /> */}
+                />
             </div>
-        </div>
+        </section>
     );
 }
 
