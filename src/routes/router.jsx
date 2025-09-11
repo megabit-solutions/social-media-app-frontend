@@ -20,6 +20,9 @@ const CompProfile1 = React.lazy(
 const CompProfile2 = React.lazy(
     () => import('../features/CompProfile/Form2/CompProfile2.jsx')
 );
+const CompProfile3 = React.lazy(
+    () => import('../features/CompProfile/Form3/CompProfile3.jsx')
+);
 
 const withSuspense = (element) => (
     <Suspense fallback={<Loading />}>{element}</Suspense>
@@ -67,6 +70,7 @@ export const router = createBrowserRouter(
                 // Temp
                 { path: 'profile1', element: withSuspense(<CompProfile1 />) },
                 { path: 'profile2', element: withSuspense(<CompProfile2 />) },
+                { path: 'profile3', element: withSuspense(<CompProfile3 />) },
 
                 { path: '*', element: withSuspense(<NotFound />) },
             ],
