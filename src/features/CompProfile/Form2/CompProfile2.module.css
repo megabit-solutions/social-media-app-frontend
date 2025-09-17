@@ -1,0 +1,83 @@
+.inlineRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 6px 0;
+  background-color: transparent !important;
+  margin-top: var(--space-2xl);
+}
+
+.selectBox {
+  flex: 1;
+  & > div {
+    padding-left: var(--space-md) !important;
+  }
+  & > div > div {
+    padding: 0% !important;
+    margin: 0% !important;
+  }
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  gap: 6px;
+  margin: 4px var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-bright);
+  min-width: 100%;
+
+  & p {
+    font-size: var(--text-xs);
+    color: var(--color-text-label);
+  }
+
+}
+
+.bio-group {
+  margin: 8px 0 !important;
+
+  & .bio {
+    background-color: var(--color-input);
+    min-width: 100%;
+    padding: var(--space-md);
+    font-size: var(--text-sm);
+    line-height: 1.2;
+    border-radius: var(--border-md);
+    border-style: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px hsl(50, 100%, 23%);
+      background-color: hsl(50, 100%, 98%);
+    }
+
+    &::placeholder {
+      color: var(--color-text-placeholder);
+      font-size: var(--text-sm);
+      font-weight: 400;
+    }
+
+    &[aria-invalid='true'] {
+      box-shadow: 0 0 0 2px var(--color-error);
+      background-color: var(--color-input);
+    }
+
+    &:focus[aria-invalid='true'] {
+      background-color: hsl(50, 100%, 98%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .inlineRow {
+    flex-wrap: wrap;
+  }
+
+  .countryBox,
+  .cityBox {
+    flex: 1 1 100%;
+  }
+}
