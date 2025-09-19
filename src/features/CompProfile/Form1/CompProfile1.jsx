@@ -1,7 +1,7 @@
 import cStyles from '../CompProfile.module.css';
 import styles from './CompProfile1.module.css';
 import Button from '../../../components/Button/Button.jsx';
-import { useRef, useState, usState } from 'react';
+import { useRef, useState } from 'react';
 import clsx from 'clsx';
 
 function CompProfile1() {
@@ -9,30 +9,48 @@ function CompProfile1() {
     const [coverPic, setCoverPic] = useState('/profile.png');
     const fileProfileRef = useRef(null);
     const fileCoverRef = useRef(null);
-    const handleProfileClick = () => {
+
+    function handleProfileClick() {
         fileProfileRef.current.click();
-    };
-    const handleCoverClick = () => {
+    }
+    function handleCoverClick() {
         fileCoverRef.current.click();
-    };
-    const handleProfileChange = (event) => {
-        const file = event.target.files[0];
+    }
+    function handleProfileChange(e) {
+        const file = e.target.files[0];
         if (file) {
             console.log('Selected file:', file);
             setProfilePic(URL.createObjectURL(file));
         }
-    };
-    const handleCoverChange = (event) => {
-        const file = event.target.files[0];
+    }
+    function handleCoverChange(e) {
+        const file = e.target.files[0];
         if (file) {
             console.log('Selected file:', file);
             setCoverPic(URL.createObjectURL(file));
         }
-    };
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const formInput = new FormData(e.target);
+        const inputObj = Object.fromEntries(formInput);
+        const req = await fetch(
+            'http://localhost:8000/api/v1/profile/pictures',
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                // body: JSON.stringify(inputObj),
+                body: formInput,
+            }
+        );
+        const res = await req.json();
+        console.log('Login response: ', res);
+    }
 
     return (
         <section className={cStyles.modal}>
-            <form className={cStyles.form}>
+            <form className={cStyles.form} onSubmit={handleSubmit}>
                 <h2>Show Who You Are</h2>
 
                 <fieldset
@@ -110,13 +128,13 @@ function CompProfile1() {
                 </fieldset>
                 <fieldset className={clsx(cStyles['btns-group'])}>
                     <Button
-                        type="button"
+                        type="reset"
                         variant="fourth"
                         label="Skip"
                         size="sm"
                     />
                     <Button
-                        type="button"
+                        type="submit"
                         variant="primary"
                         label="Update Profile"
                         size="sm"

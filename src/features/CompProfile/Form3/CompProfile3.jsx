@@ -10,30 +10,17 @@ function CompProfile3() {
                 <h2>Your Journey So Far</h2>
                 <div className={clsx(styles['group'], styles['exp-group'])}>
                     <h4>work and education</h4>
-                    <p className={styles['desktop-intro']}>
-                        More than just details, your education and work
-                        experiences added to your profile help you to:
-                    </p>
-                    <p className={styles['mob-intro']}>
-                        Add education and work experiences your profile and:
+                    <p>
+                        Adding education and work experiences to your profile
+                        helps you to:
                     </p>
                     <ul>
+                        <li>Stand out and present yourself better.</li>
                         <li>
-                            Stand out with a richer<span>, more complete </span>{' '}
-                            profile.
+                            See content that fits your interests (you can
+                            disable it anytime).
                         </li>
-                        <li>
-                            See content that fits your interests
-                            <span>, tailored around your background </span>(you
-                            can adjust or disable anytime).
-                        </li>
-                        <li>
-                            Reconnect with old classmates and colleagues
-                            <span>
-                                {' '}
-                                who studied or worked at the same places.
-                            </span>
-                        </li>
+                        <li>Reconnect with old classmates and colleagues.</li>
                     </ul>
                 </div>
                 <fieldset
@@ -51,9 +38,8 @@ function CompProfile3() {
                     <Button
                         type="button"
                         variant="primary"
-                        label="Add Experience"
+                        label="Add Experiences"
                         size="sm"
-                        // disabled={true}
                     />
                 </fieldset>
             </section>
