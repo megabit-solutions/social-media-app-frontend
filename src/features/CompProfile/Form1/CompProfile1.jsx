@@ -3,12 +3,16 @@ import styles from './CompProfile1.module.css';
 import Button from '../../../components/Button/Button.jsx';
 import { useRef, useState } from 'react';
 import clsx from 'clsx';
+import { axiosInstance } from '../../../lib/axios.js';
+import { useSelector } from 'react-redux';
+import { selectAccessToken } from '../../auth/authSlice.js';
 
 function CompProfile1() {
     const [profilePic, setProfilePic] = useState('/profile.png');
     const [coverPic, setCoverPic] = useState('/profile.png');
     const fileProfileRef = useRef(null);
     const fileCoverRef = useRef(null);
+    const token = useSelector(selectAccessToken);
 
     function handleProfileClick() {
         fileProfileRef.current.click();
@@ -35,15 +39,27 @@ function CompProfile1() {
         e.preventDefault();
         const formInput = new FormData(e.target);
         const inputObj = Object.fromEntries(formInput);
-        const req = await fetch(
+        // const req = await fetch(
+        //     'http://localhost:8000/api/v1/profile/pictures',
+        //     {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json','' },
+
+        //         // body: JSON.stringify(inputObj),
+        //         body: formInput,
+        //     }
+        // );
+        console.log(token);
+        const req = await axiosInstance.post(
             'http://localhost:8000/api/v1/profile/pictures',
+            formInput,
             {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                // body: JSON.stringify(inputObj),
-                body: formInput,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
             }
         );
+
         const res = await req.json();
         console.log('Login response: ', res);
     }
